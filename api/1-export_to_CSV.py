@@ -7,7 +7,6 @@ import requests
 import sys
 
 
-
 def gather_data_from_api():
     """
         This function gather data from an api
@@ -24,10 +23,10 @@ def gather_data_from_api():
     result = []
     for elem in content_todo:
         aux_list = []
-        aux_list.append(elem['userId'])
-        aux_list.append(content_name[0]['name'])
-        aux_list.append(elem['completed'])
-        aux_list.append(elem['title'])
+        aux_list.append(str(elem['userId']))
+        aux_list.append(str(content_name[0]['username']))
+        aux_list.append(str(elem['completed']))
+        aux_list.append(str(elem['title']))
         result.append(aux_list)
 
     with open('{}.csv'.format(sys.argv[1]), 'w') as f:
