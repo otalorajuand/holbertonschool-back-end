@@ -2,13 +2,14 @@
 """
 This module containts an api request
 """
-import requests, sys
+import requests
+import sys
 
 
 url_todo = 'https://jsonplaceholder.typicode.com/todos?userId='
 url_name = 'https://jsonplaceholder.typicode.com/users?id='
-response_todo = requests.get(url_todo+sys.argv[1])
-response_name = requests.get(url_name+sys.argv[1])
+response_todo = requests.get(url_todo + sys.argv[1])
+response_name = requests.get(url_name + sys.argv[1])
 
 content_todo = list(response_todo.json())
 content_name = list(response_name.json())
@@ -22,6 +23,7 @@ for elem in content_todo:
         completed_tasks.append(elem['title'])
     total_tasks += 1
 
-print("Employee {} is done with tasks({}/{}):".format(content_name[0]['name'], task_completed, total_tasks))
+print("Employee {} is done with tasks({}/{}):".format(
+    content_name[0]['name'], task_completed, total_tasks))
 for elem in completed_tasks:
-    print('\t '+elem)
+    print('\t ' + elem)
