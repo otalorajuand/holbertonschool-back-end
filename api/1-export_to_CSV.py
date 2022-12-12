@@ -2,9 +2,10 @@
 """
 This module containts an api request
 """
+import csv
 import requests
 import sys
-import csv
+
 
 
 def gather_data_from_api():
@@ -31,7 +32,7 @@ def gather_data_from_api():
 
     with open('{}.csv'.format(sys.argv[1]), 'w') as f:
         write = csv.writer(f)
-        write.writerow(result)
+        write.writerows(result)
 
 
 if __name__ == "__main__":
