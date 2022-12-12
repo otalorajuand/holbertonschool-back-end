@@ -2,8 +2,9 @@
 """
 This module containts an api request
 """
-import json, requests, sys
-
+import json
+import requests
+import sys
 
 
 def gather_data_from_api():
