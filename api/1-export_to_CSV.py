@@ -4,6 +4,7 @@ This module containts an api request
 """
 import requests
 import sys
+import csv
 
 
 def gather_data_from_api():
@@ -19,19 +20,18 @@ def gather_data_from_api():
     content_todo = list(response_todo.json())
     content_name = list(response_name.json())
 
-    task_completed = 0
-    total_tasks = 0
-    completed_tasks = []
+    result = []
     for elem in content_todo:
-        if elem['completed']:
-            task_completed += 1
-            completed_tasks.append(elem['title'])
-        total_tasks += 1
+        aux_list = []
+        aux_list.append(elem['userId'])
+        aux_list.append(content_name[0]['name'])
+        aux_list.append(elem['completed'])
+        aux_list.append(elem['title'])
+        result.append(aux_list)
 
-    print("Employee {} is done with tasks({}/{}):".format(
-        content_name[0]['name'], task_completed, total_tasks))
-    for elem in completed_tasks:
-        print('\t ' + elem)
+    with open('{}.csv'.format(sys.argv[1]), 'w') as f:
+        write = csv.writer(f)
+        write.writerow(result)
 
 
 if __name__ == "__main__":
