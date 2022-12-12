@@ -30,7 +30,7 @@ def gather_data_from_api():
         result.append(aux_list)
 
     with open('{}.csv'.format(sys.argv[1]), 'w') as f:
-        write = csv.writer(f)
+        write = csv.writer(f, quoting=csv.QUOTE_NONNUMERIC)
         write.writerows(result)
 
 
