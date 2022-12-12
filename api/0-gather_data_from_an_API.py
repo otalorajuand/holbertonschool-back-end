@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+This module containts an api request
+"""
 import requests, sys
 
 
