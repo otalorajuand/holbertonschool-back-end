@@ -25,7 +25,7 @@ def gather_data_from_api():
         attributes = []
         for elem in content_todo:
             aux_dict = {}
-            aux_dict['username'] = content_users[0]['username']
+            aux_dict['username'] = user['username']
             aux_dict['task'] = elem['title']
             aux_dict['completed'] = elem['completed']
 
