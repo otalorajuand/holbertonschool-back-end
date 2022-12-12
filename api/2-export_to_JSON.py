@@ -2,10 +2,8 @@
 """
 This module containts an api request
 """
-import csv
-import requests
-import sys
-import json
+import json, requests, sys
+
 
 
 def gather_data_from_api():
